@@ -16,10 +16,15 @@
       "autoria": "Dev"
     },
     {
-      "conteudo": "          teste",
+      "id": "FLzx4H3aIHA",
+      "conteudo": "          teste 3",
+      "autoria": "daniel"
+    },
+    {
+      "conteudo": "          teste novo",
       "autoria": "daniel",
-      "id": "FLzx4H3aIHA"
+      "id": "k_gruRmze6I"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
-} 
+}
