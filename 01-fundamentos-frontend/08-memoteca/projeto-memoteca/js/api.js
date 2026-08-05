@@ -1,69 +1,74 @@
+const URL_BASE = "http://localhost:3000"
+
 const api = {
-
-    // buscando todos os pensamentos
-    async buscarPensamentos() {
-        try {
-
-            const response = await fetch('http://localhost:3000/pensamentos')
-            return await response.json()
-
-        } catch {
-            alert('Erro ao buscar pensamentos.')
-            throw error
-        }
-    },
-
-    // criando pensamento
-    async salvarPensamento(pensamento) {
-        try {
-
-            const response = await fetch('http://localhost:3000/pensamentos', {
-                method: 'POST', // enviar informação'
-                headers: {
-                    'Content-Type': 'application/json' // tipo de conteudo enviado na requisição
-                },
-                body: JSON.stringify(pensamento) // converte de JS para string JSON
-
-            })
-            return await response.json()
-
-        } catch {
-            alert('Erro ao salvar pensamento.')
-            throw error
-        }
-    },
-
-    // buscando pensamento específico
-    async buscarPensamentoPorId(id) {
-        try {
-
-            const response = await fetch(`http://localhost:3000/pensamentos/${id}`)
-            return await response.json()
-
-        } catch {
-            alert('Erro ao buscar pensamento.')
-            throw error
-        }
-    },
-
-    async editarPensamento(pensamento) {
-        try {
-
-            const response = await fetch(`http://localhost:3000/pensamentos/${pensamento.id}`, {
-                method: 'PUT', // enviar informação'
-                headers: {
-                    'Content-Type': 'application/json' // tipo de conteudo enviado na requisição
-                },
-                body: JSON.stringify(pensamento) // converte de JS para string JSON
-
-            })
-            return await response.json()
-
-        } catch {
-            alert('Erro ao editar pensamentos.')
-            throw error
-        }
+  async buscarPensamentos() {
+    try {
+      const response = await fetch(`${URL_BASE}/pensamentos`)
+      return await response.json()
     }
+    catch {
+      alert('Erro ao buscar pensamentos')
+      throw error
+    }
+  },
+
+  async salvarPensamento(pensamento) {
+    try {
+      const response = await fetch(`${URL_BASE}/pensamentos`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(pensamento)
+      })
+      return await response.json()
+    }
+    catch {
+      alert('Erro ao salvar pensamento')
+      throw error
+    }
+  },
+
+  async buscarPensamentoPorId(id) {
+    try {
+      const response = await fetch(`${URL_BASE}/pensamentos/${id}`)
+      return await response.json()
+    }
+    catch {
+      alert('Erro ao buscar pensamento')
+      throw error
+    }
+  },
+
+  async editarPensamento(pensamento) {
+    try {
+      const response = await fetch(`${URL_BASE}/pensamentos/${pensamento.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(pensamento)
+      })
+      return await response.json()
+    }
+    catch {
+      alert('Erro ao editar pensamento')
+      throw error
+    }
+  },
+
+  async excluirPensamento(id) {
+    try {
+      const response = await fetch(`${URL_BASE}/pensamentos/${id}`, {
+        method: "DELETE"
+      })
+    }
+    catch {
+      alert('Erro ao excluir um pensamento')
+      throw error
+    }
+  }
+  
 }
 
 export default api
