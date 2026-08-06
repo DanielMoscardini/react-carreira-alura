@@ -7,7 +7,9 @@
   "type": "commonjs",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api-local": "json-server --watch backend/videos.json",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
