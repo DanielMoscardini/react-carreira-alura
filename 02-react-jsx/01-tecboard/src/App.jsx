@@ -51,7 +51,7 @@ function App() {
 
       <Banner />
 
-      <FormularioDeEvento />
+      <FormularioDeEvento temas={temas} />
 
       {temas.map(function (item) {
         return (
