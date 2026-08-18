@@ -10,6 +10,7 @@ import { IconPlus, IconSchool } from "./components/icons";
 import { SubHeading } from "./components/SubHeading";
 import { ToDoItem } from "./components/ToDoItem";
 import { ToDoList } from "./components/ToDoList";
+import { TodoForm } from "./components/TodoForm";
 
 const todos = [
   {
@@ -57,7 +58,11 @@ function App() {
 
   const toggleDialog = () => {
     setShowDialog(!showDialog);
-    console.log("alternar modal");
+  };
+
+  const addTodo = () => {
+    console.log("add todo");
+    toggleDialog();
   };
 
   return (
@@ -83,7 +88,9 @@ function App() {
             })}
           </ToDoList>
           <Footer>
-            <Dialog isOpen={showDialog} onClose={toggleDialog} />
+            <Dialog isOpen={showDialog} onClose={toggleDialog}>
+              <TodoForm onSubmit={addTodo} />
+            </Dialog>
             <FabButton onClick={toggleDialog}>
               <IconPlus />
             </FabButton>

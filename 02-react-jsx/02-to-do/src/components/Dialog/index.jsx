@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import "./dialog.style.css";
+import { IconClose } from "../icons";
 
-export const Dialog = ({ isOpen, onClose }) => {
+export const Dialog = ({ isOpen, onClose, children }) => {
   const dialogRef = useRef(null);
 
   useEffect(() => {
-    console.log("Deveriamos mostrar a modal? ", isOpen);
     if (isOpen) {
       openDialog();
     } else {
@@ -23,11 +23,13 @@ export const Dialog = ({ isOpen, onClose }) => {
 
   return (
     <React.Fragment>
-      <dialog ref={dialogRef}>
-        <button autoFocus onClick={onClose}>
-          Close
-        </button>
-        <p>This modal dialog has a groovy backdrop!</p>
+      <dialog ref={dialogRef} className="dialog">
+        <div className="btn-close-wrapper">
+          <button autoFocus onClick={onClose} className="btn-close">
+            <IconClose />
+          </button>
+        </div>
+        <div className="body">{children}</div>
       </dialog>
     </React.Fragment>
   );
