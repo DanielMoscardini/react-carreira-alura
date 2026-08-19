@@ -1,0 +1,16 @@
+.bankItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bankItem p {
+  margin: 0;
+  color: var(--neutral-text);
+}
+
+.bankDescription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
