@@ -3,6 +3,7 @@ import Card from "./components/Card";
 import { Container } from "./components/Container";
 import { DailyBudget } from "./components/DailyBudget";
 import { Main } from "./components/Main";
+import { SavingStatus } from "./components/SavingsStatus";
 import { SearchInput } from "./components/SearchInput";
 import { Typography } from "./components/Typography";
 
@@ -28,7 +29,9 @@ function App() {
 
           <Card>
             <Card.Header>Progresso da meta financeira</Card.Header>
-            <Card.Body>R$200</Card.Body>
+            <Card.Body>
+              <SavingStatus percent={40} />
+            </Card.Body>
           </Card>
 
           <Card>
