@@ -4,6 +4,14 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
+import Stack from "@mui/material/Stack";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
 
 const eventCategories = [
   {
@@ -120,6 +128,8 @@ export const Board = () => {
           />
         </Toolbar>
       </AppBar>
+
+      {/* Banner */}
       <Box
         sx={{
           display: "flex",
@@ -139,21 +149,91 @@ export const Board = () => {
           Seu hub de eventos de tecnologia
         </Typography>
       </Box>
-      {/* <Box
+
+      {/* Formulario */}
+      <Box
         sx={{
-          backgroundColor: "#FFF",
           display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           flexDirection: "column",
         }}
       >
-        <Typography variant="h1" sx={{ color: "#222" }}>
-          Formulário
-        </Typography>
-        <TextField />
-        <TextField />
-        <TextField />
-        <Button variant="contained">Botão</Button>
-      </Box> */}
+        <Box
+          sx={{
+            backgroundColor: "#ccc",
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "100%",
+            maxWidth: "384px",
+          }}
+        >
+          <Typography>Preencha para criar um evento:</Typography>
+          <Stack spacing={2}>
+            <FormControl fullWidth>
+              <InputLabel
+                shrink
+                htmlFor="name"
+                sx={{ position: "static", transform: "none", mb: 1 }}
+              >
+                Qual o nome do evento?
+              </InputLabel>
+              <OutlinedInput id="name" placeholder="Summer dev hits" />
+            </FormControl>
+
+            <FormControl fullWidth>
+              <InputLabel
+                shrink
+                htmlFor="date"
+                sx={{ position: "static", transform: "none", mb: 1 }}
+              >
+                Data do Evento
+              </InputLabel>
+              <OutlinedInput id="date" placeholder="XX/XX/XXXX" />
+            </FormControl>
+
+            <FormControl fullWidth>
+              <InputLabel
+                shrink
+                htmlFor="name"
+                sx={{ position: "static", transform: "none", mb: 1 }}
+              >
+                Tema do Evento
+              </InputLabel>
+              <OutlinedInput id="name" placeholder="Selecione uma opção" />
+            </FormControl>
+          </Stack>
+        </Box>
+      </Box>
+
+      {/* Listagem de Eventos */}
+      <Box sx={{ width: "100%", maxWidth: "1200px" }}>
+        {eventCategories.map((category) => (
+          <Box key={category.name}>
+            <Typography>{category.name}</Typography>
+            <Grid container spacing={2} sx={{ maxWidth: "1200px", mx: "auto" }}>
+              {category.events.map((event) => (
+                <Grid item xs={12} sm={6} md={4} key={event.id}>
+                  <Card>
+                    <CardMedia
+                      component={"img"}
+                      height="140px"
+                      image={event.image}
+                      alt={event.title}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography>{event.name}</Typography>
+                      <Typography>{event.description}</Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 };
